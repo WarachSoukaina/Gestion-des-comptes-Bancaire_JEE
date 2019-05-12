@@ -45,8 +45,7 @@ public class GestionDesComptesApplication implements CommandLineRunner {
 		operationRepository.save(new Versement(new Date(), 9000, cp1));
 		operationRepository.save(new Versement(new Date(), 6000, cp1));
 		operationRepository.save(new Versement(new Date(), 2000, cp1));
-		operationRepository.save(new Retrait(new Date(), 6000, cp1));
-		
+		operationRepository.save(new Retrait(new Date(), 6000, cp1));		
 		operationRepository.save(new Versement(new Date(), 9000, cp2));
 		operationRepository.save(new Versement(new Date(), 6000, cp2));
 		operationRepository.save(new Versement(new Date(), 2000, cp2));
