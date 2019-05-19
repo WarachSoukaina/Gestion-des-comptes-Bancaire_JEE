@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org"
- xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{template1}">
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template1">
 <head>
 <meta charset="utf-8">
 <title>Notre Banque</title>
@@ -9,7 +9,104 @@
 <body>
 
 	<div layout:fragment="content">
-		<h3>Test comptes</h3>
+		<div class="col-md-6">
+			<div class="panel panel-info">
+				<div class="panel-heading"> Consultation d'un compte</div>
+				<div class="panel-body">
+				<form th:action="@{/consulterCompte}" method="get">
+				
+				<label>Code Compte :</label>
+				<input type="text" name="codeCompte" th:value="${codeCompte}">
+				
+				<button type="submit" class="btn btn-primary">consulter</button>
+				
+				</form>
+				<div class="alert alert-danger" role="alert" th:if="${exception}" th:text="${exception.message}"></div>
+				</div>
+			</div>
+			
+			<div class="panel panel-success" th:if="${compte}">
+				<div class="panel-heading"> information sur le compte</div>
+				<div class="panel-body">
+				<div>
+					<label>Le nom du client est :</label>
+					<label th:text="${compte.client.nom}"></label>
+				</div>
+				<div>
+					<label>Le Code :</label>
+					<label th:text="${compte.codeCompte}"></label>
+				</div>
+				
+				<div>
+					<label>Le Solde :</label>
+					<label th:text="${compte.solde}"></label> DH
+				</div>
+				
+				<div>
+					<label>La date de création  :</label>
+					<label th:text="${compte.dateCreation}"></label>
+				</div>
+				
+				<div>
+					<label>Le type du compte  :</label>
+					<label th:text="${compte.class.simpleName}"></label>
+				</div>
+				
+				<div th:if="${compte.class.simpleName=='CompteCourant'}">
+					<label>Le Découvert  :</label>
+					<label th:text="${compte.decouvert}"></label> DH
+				</div>
+				
+				<div th:if="${compte.class.simpleName=='CompteEpargne'}">
+					<label>Le taux  :</label>
+					<label th:text="${compte.taux}"></label> DH
+				</div>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="col-md-6">
+			<div class="panel panel-info" th:if="${compte}">
+				<div class="panel-heading">Opérations sur le compte</div>
+				<div class="panel-body">
+				
+				
+				</div>
+			</div>
+						
+			<div class="panel panel-info" th:if="${compte}">
+				<div class="panel-heading"> La liste des opérations </div>
+				<div class="panel-body">
+				<table class="table table-striped">
+				<tr>
+					<th>NUm</th><th>Type</th><th>Date</th><th>Montant</th>
+				
+				</tr>
+				
+				<tr th:each="o:${listOperations}">
+					<td th:text="${o.numero}"></td>
+					<td th:text="${o.class.simpleName}"></td>
+					<td th:text="${o.dateOperation}"></td>
+					<td th:text="${o.montant}"></td>
+				</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</div>
 	
 </body>
