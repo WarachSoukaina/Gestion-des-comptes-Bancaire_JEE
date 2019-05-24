@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template1">
+<head>
+<meta charset="utf-8"/>
+<title>Clients</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+	<div class="container" layout:fragment="content">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Liste des clients</div>
+			<div class="panel-body">
+			<form th:action="@{/indexcli}" method="get">
+			<label>Mot clé:</label>
+			<input type="text" name="motCle" th:value="${motCle}"/>
+			<button type="submit" class="btn btn-primary">Chercher</button>
+			<a th:href="@{/form}" th:text="add" class="btn btn-primary"></a>
+			</form>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<tr>
+						<th>CODE</th>
+						<th>NOM</th> 
+						<th>EMAIL</th>
+						<th>Valide</th>
+						<th>Supprimer</th>
+						<th>Planifier</th>
+					</tr>
+					<tr th:each="p:${listClients}">
+						<td th:text="${p.code}"></td>
+						<td th:text="${p.nom}"></td>
+						<td th:text="${p.email}"></td>
+						<td th:text="${p.planf==true}?'OUI':'NON'"></td>
+							<td><a class="btn btn-danger" onclick="return confirm('Etes vous sûre?')" th:href="@{deletecl(num=${p.code},page=${currentPage},motCle=${motCle})}">Delete</a>
+						<td><a class="btn btn-success" th:text="return" onclick="return confirm('Etes vous sûre?')" th:href="@{updatecl(num=${p.code},page=${currentPage},motCle=${motCle})}" >Planifier</a>
+					</td>
+					</tr>
+				</table>
+						
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+</body>
+</html>

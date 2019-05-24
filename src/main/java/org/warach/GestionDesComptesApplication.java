@@ -50,7 +50,7 @@ public class GestionDesComptesApplication implements CommandLineRunner {
 		operationRepository.save(new Versement(new Date(), 6000, cp2));
 		operationRepository.save(new Versement(new Date(), 2000, cp2));
 		operationRepository.save(new Retrait(new Date(), 6000, cp2));
-		banqueMetier.verser("c1", 10000);// tester la couche métier
+		banqueMetier.verser("c1", 10000);// tester la couche métier*/
 		
 	}
 	

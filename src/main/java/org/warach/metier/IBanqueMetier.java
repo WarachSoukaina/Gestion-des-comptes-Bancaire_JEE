@@ -6,7 +6,7 @@ import org.warach.entities.Operation;
 
 public interface IBanqueMetier {
 	// les composants de Use cases
-	public Compte consuleterCompte(String codeCpte);
+	public Compte consulterCompte(String codeCpte);
 	public void verser(String CodeCpte,double montant);
 	public void retirer(String CodeCpte,double montant);
 	public void virement(String CodeCpte1,String CodeCpte2,double montant);

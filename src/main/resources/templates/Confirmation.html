@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Clients</title>
+<link rel="stylesheet" type="text/css" 
+      href="../static/css/bootstrap.min.css"
+      th:href="@{css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+   <div class="panel panel-primary">
+        <div class="panel-heading"> Confirmation</div>
+        <div class="panel-body">
+        
+            <div class="form-group">   
+                <label>CODE : </label>
+                <label th:text="${client.code}"></label>
+            </div>
+            <div class="form-group">
+                 <label>NOM :</label>
+                 <label th:text="${client.nom}"></label>
+            </div>
+            <div class="form-group">
+                 <label>EMail :</label>
+                 <label th:text="${client.email}"></label>
+            </div>
+            <div>
+            <a th:href="@{/operations}" th:text="return" class="btn btn-primary"></a></div>
+            
+        </div>
+        </div>
+   </div>
+
+</body>
+</html>

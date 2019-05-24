@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template1">
+<head>
+<meta charset="utf-8" />
+<title>Ajouter Client</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+	
+	<link rel="stylesheet" type="text/css" 
+      href="../static/css/style.css"
+      th:href="@{css/style.css}"/>
+      
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="container spacer">
+		<div class="panel panel-info">
+			<div class="panel-heading">Saisie d'un client</div>
+			<div class="panel-body">
+				<form th:action="@{save}" method="post">
+				<div class="form-group">
+						<label class="control-label">Code</label> <input
+							class="form-control" type="text" name="Code"
+							th:value="${client.code}"></input><br> <span
+							class="red" th:errors="${client.code}"></span>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Nom:</label> <input
+							class="form-control" type="text" placeholder="YOUR NAME" name="Nom"
+							th:value="${client.nom}"></input><br> <span
+							class="red" th:errors="${client.nom}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Email</label> <input
+							class="form-control" type="text" placeholder="example@gmail.com" name="email"
+							th:value="${client.email}"></input><br> <span
+							class="red" th:errors="${client.email}"></span>
+					</div>
+
+
+					<div>
+						<button type="submit" class="btn btn-primary">Save</button> 						
+						
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
