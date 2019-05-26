@@ -12,12 +12,16 @@
 	<div class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
-			<li><a th:href="@{/operations}">Operations</a> </li>
-			<li><a th:href="@{/client}">Ajouter un Clients</a> </li>
-			    <li> <a th:href="@{/comptes}">Consulter Comptes</a> </li>
+			<li><a th:href="@{/AddClient}"><b>Ajouter un client</b></a> </li>			
+			<li> <a th:href="@{/clients}"><b>Consulter les clients</b></a> </li>
+			<li> <a th:href="@{/AddCompte}"><b>Ajouter un compte</b></a> </li>
+			
+			<li> <a th:href="@{/comptes}"><b>Consulter les comptes</b></a> </li>
+			    
+			<li><a th:href="@{/operations}"><b>Les Operations sur un compte</b></a> </li>
 			</ul>
 			<ul class="nav navbar-nav  navbar-right">
-				<li> <a th:href="@{/login?Logout}"> Logout </a> </li> 
+				<li> <a th:href="@{/login?logout}"> Logout </a> </li> 
 			</ul>
 			</div>
 		</div>
